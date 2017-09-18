@@ -1,0 +1,22 @@
+{
+  "presets": [
+    "es2015",
+    "stage-0",
+    "react"
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "babel-plugin-rewire"
+      ]
+    },
+    "production": {
+      "plugins": [
+        "babel-plugin-transform-react-constant-elements",
+        "babel-plugin-transform-react-remove-prop-types",
+        "babel-plugin-transform-runtime",
+        "babel-plugin-transform-react-inline-elements"
+      ]
+    }
+  }
+}
