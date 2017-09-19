@@ -42,22 +42,25 @@ const universalRenderer = (req, res, next) => {
 			const [getCurrentUrl, unsubscribe] = subscribeUrl();
 			const reqUrl = location.pathname + location.search;
 
-			const getReduxPromise = () => {
-				const { query, params } = renderProps;
-				const comp = renderProps.components[renderProps.components.length - 1].WrappedComponent;
+			// const getReduxPromise = () => {
+			// 	const { query, params } = renderProps;
+			// 	const comp = renderProps.components[renderProps.components.length - 1].WrappedComponent;
+			// 	console.log('comp = ', comp); // TODO Remove
+			// 	// console.log('comp.fetchData!==null = ', comp.fetchData!==null); // TODO Remove
+			// 	const promise = (comp.fetchData !== null) ?
+			// 		comp.fetchData({ query, params, store, history }) :
+			// 		Promise.resolve();
+			// 	console.log('promise = ', promise); // TODO Remove
+			// 	return promise;
+			// };
 
-				return comp.fetchData ?
-					comp.fetchData({ query, params, store, history }) :
-					Promise.resolve();
-			};
-			console.log('getReduxPromise = ', getReduxPromise); // TODO Remove
 			getReduxPromise()
 				.then(() => {
 					const reduxState = encodeURIComponent(JSON.stringify(store.getState()));
 					const html = ReactDOMServer.renderToString(
 						<Provider store={store}>
 							{<RouterContext {...renderProps} />}
-						</Provider>
+						</Provider>,
 					);
 					const metaHeader = Helmet.renderStatic();
 
@@ -73,6 +76,15 @@ const universalRenderer = (req, res, next) => {
 					unsubscribe();
 					next(err);
 				});
+			function getReduxPromise() {
+				const comp = renderProps.components[renderProps.components.length - 1].WrappedComponent;
+
+				const promise = (comp.fetchData!==null) ?
+					comp.fetchData({ store }) :
+					Promise.resolve();
+				console.log('promise in universalRenderer = ', promise); // TODO Remove
+				return promise;
+			}
 		}
 	});
 

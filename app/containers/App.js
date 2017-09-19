@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import fetchData from 'decorators/fetchData';
 
-
 const fetchMethod = null;
 const actionMethod = () => {
 };
@@ -19,6 +18,7 @@ class App extends Component {
 					meta={[{ name: 'description', content: 'Rambler&Co test exercise' }]}
 					htmlAttributes={{ lang: 'en' }}
 				/>
+				{this.props.children}
 			</div>
 		);
 	}
@@ -28,7 +28,9 @@ function mapStateToProps() {
 	return {};
 }
 
-App.propTypes = {};
+App.propTypes = {
+	children: PropTypes.any,
+};
 /* Apply FetchData Decorator */
 const DecoratedApp = fetchData(fetchMethod, actionMethod)(App);
 
