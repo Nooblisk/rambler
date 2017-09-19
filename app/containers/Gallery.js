@@ -27,7 +27,7 @@ class Gallery extends Component {
 			<div>
 				<p>privet ya gallery</p>
 				{
-					images.map(image => <ImageCard image={image} />)
+					images.map(image => <ImageCard key={`ImageCard_${image.id}`} image={image} />)
 				}
 			</div>
 		);
@@ -44,6 +44,7 @@ Gallery.propTypes = {
 	app: PropTypes.shape({
 		images: PropTypes.any,
 	}),
+	getGallery: PropTypes.func,
 };
 /* Apply FetchData Decorator */
 const DecoratedGallery = fetchData(fetchMethod, actionMethod)(Gallery);
