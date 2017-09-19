@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes as Type } from 'react';
+import { PropTypes as Type } from 'prop-types';
 
 export default (fetch, action) => {
 
@@ -19,8 +19,16 @@ export default (fetch, action) => {
 				initialRender: Type.bool,
 			};
 
+			static contextTypes = {
+				router: Type.object,
+			};
+
 			componentDidMount() {
-				action({ props: this.props });
+				if (this.props.initialRender) {
+					return;
+				}
+
+				action({ props: this.props, context: this.context });
 			}
 
 			render() {

@@ -13,7 +13,7 @@ const getAuthorizationHeaders = () => ({
 export function getGallery() {
 	return (dispatch) => {
 		dispatch({
-			// ajaxAction: true,
+			ajaxAction: true,
 			method: 'GET',
 			name: GET_GALLERY,
 			type: GET_GALLERY,
