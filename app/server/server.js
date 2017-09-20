@@ -5,7 +5,6 @@ import universalRenderer from './middleware/universalRenderer';
 
 const server = new Express();
 const port = process.env.PORT || 3040;
-process.env.ON_SERVER = true;
 
 server.use(compression());
 

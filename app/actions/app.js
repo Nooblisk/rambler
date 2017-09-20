@@ -10,18 +10,13 @@ const getAuthorizationHeaders = () => ({
 });
 
 export function getGallery() {
-	console.log('getGallery dispatching!  = '); // TODO Remove
-	return (dispatch) => {
-		dispatch({
-			ajaxAction: true,
-			method: 'get',
-			name: GET_GALLERY,
-			url: `${BASE_URL}/3/gallery/top/top/`,
-			headers: getAuthorizationHeaders(),
-			payload: {},
-			afterError: (data) => {
-				console.log('error data = ', data);
-			},
-		});
+	return {
+		ajaxAction: true,
+		method: 'get',
+		name: GET_GALLERY,
+		url: `${BASE_URL}/3/gallery/top/top/`,
+		headers: getAuthorizationHeaders(),
+		payload: {},
 	};
 }
+

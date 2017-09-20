@@ -26,12 +26,10 @@ class ImageCard extends Component {
 
 	render() {
 		const { image } = this.props;
-		console.log('this.state = ', this.state); // TODO Remove
 		const ImageCardStyle = {
 			width: `${280}px`,
 			height: `${280}px`,
 		};
-		console.log('image = ', image); // TODO Remove
 		return (
 			<div >
 				<img

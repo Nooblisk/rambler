@@ -6,20 +6,9 @@ import Gallery from 'containers/Gallery';
 
 export const app = '/';
 
-// export const gallery = '/gallery';
-
-
-function prepareComponent(izomorphicState, Component, props) {
-	return (<Component
-		initialRender={izomorphicState.initial}
-		{...props}
-	/>);
-}
-
-
-export default function (history, izomorphicState) {
+export default function (history) {
 	return (
-		<Router history={history} createElement={prepareComponent.bind(this, izomorphicState)}>
+		<Router history={history}>
 			<Route name='app' path={app} component={App}>
 				<IndexRoute component={Gallery} />
 			</Route>
