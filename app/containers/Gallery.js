@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import fetchData from 'decorators/fetchData';
 import ImageCard from 'components/ImageCard';
 
 import {
 	getGallery,
 } from 'actions/app';
 
-// const fetchMethod = ({ store }) => {
-// 	return store.dispatch(getGallery());
-// };
-const fetchMethod = null;
-const actionMethod = () => {
-};
-
 class Gallery extends Component {
-	componentDidMount() {
-		this.props.getGallery();
+	static fetchData({ store }) {
+		return store.dispatch(getGallery());
 	}
+	// componentDidMount() {
+	// 	this.props.getGallery();
+	// }
 
 	render() {
 		console.log('this.props.app.images = ', this.props.app.images); // TODO Remove
@@ -46,9 +41,7 @@ Gallery.propTypes = {
 	}),
 	getGallery: PropTypes.func,
 };
-/* Apply FetchData Decorator */
-const DecoratedGallery = fetchData(fetchMethod, actionMethod)(Gallery);
 
 export default connect(mapStateToProps, {
 	getGallery,
-})(DecoratedGallery);
+})(Gallery);

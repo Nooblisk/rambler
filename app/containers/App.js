@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import fetchData from 'decorators/fetchData';
-
-const fetchMethod = null;
-const actionMethod = () => {
-};
 
 class App extends Component {
 	render() {
@@ -31,7 +26,5 @@ function mapStateToProps() {
 App.propTypes = {
 	children: PropTypes.any,
 };
-/* Apply FetchData Decorator */
-const DecoratedApp = fetchData(fetchMethod, actionMethod)(App);
 
-export default connect(mapStateToProps)(DecoratedApp);
+export default connect(mapStateToProps)(App);
