@@ -5,11 +5,6 @@
     "react"
   ],
   "env": {
-    "test": {
-      "plugins": [
-        "babel-plugin-rewire"
-      ]
-    },
     "production": {
       "plugins": [
         "babel-plugin-transform-react-constant-elements",

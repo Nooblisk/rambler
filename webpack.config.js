@@ -1,8 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-// const { CheckerPlugin } = require('awesome-typescript-loader');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const DEBUG = !(process.env.NODE_ENV === 'production');
 const env = {
@@ -47,6 +46,15 @@ const config = {
 			'react-router',
 			'react-redux',
 			'redux',
+			'react-dom',
+			'immutable',
+			'superagent',
+			'react-helmet',
+			'redux-logger',
+			'humps',
+			'react-body-classname',
+			'babel-polyfill',
+			'redux-thunk',
 		],
 	},
 	resolve: {
@@ -88,7 +96,6 @@ const config = {
 		// 	// Relative to bundles output directory.
 		// 	statsFilename: 'stats.json',
 		// }),
-		// new CheckerPlugin(),
 	],
 	module: {
 		rules: [
