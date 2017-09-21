@@ -26,14 +26,9 @@ class ImageCard extends Component {
 
 	render() {
 		const { image } = this.props;
-		const ImageCardStyle = {
-			width: `${280}px`,
-			height: `${280}px`,
-		};
 		return (
-			<div >
+			<div className='image-card'>
 				<img
-					style={ImageCardStyle}
 					src={image.link}
 					alt={image.title}
 					onClick={this.handleClick}

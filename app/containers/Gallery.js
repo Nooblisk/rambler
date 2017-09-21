@@ -25,9 +25,11 @@ class Gallery extends Component {
 		return (
 			<div>
 				<h1>{`Imgur top images of the ${DATE_RANGE}`}</h1>
-				{
-					filteredImages.map(image => <ImageCard key={`ImageCard_${image.id}`} image={image} />)
-				}
+				<div className='gallery'>
+					{
+						filteredImages.map(image => <ImageCard key={`ImageCard_${image.id}`} image={image} />)
+					}
+				</div>
 			</div>
 		);
 	}

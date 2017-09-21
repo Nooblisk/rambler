@@ -33,11 +33,11 @@ class FullscreenGallery extends Component {
 							<div className='gallery-fullscreen'>
 								<div className='full-screen-controls'>
 									<div className='full-screen-controls__wrapper'>
-										<span className='icon-link clickable icon-white'>
-											<span className='fa fa-2x fa-arrows ' onClick={this.handleFitToScreen} />
+										<span className='icon-link clickable icon-greenyellow'>
+											<span className='icon-shrink' onClick={this.handleFitToScreen} />
 										</span>
-										<span className='icon-link clickable icon-white' onClick={this.handleCloseGallery}>
-											<span className='fa fa-2x fa-times icon-close' />
+										<span className='icon-link clickable icon-greenyellow' onClick={this.handleCloseGallery}>
+											<span className='icon-cross icon-close' />
 										</span>
 									</div>
 								</div>
