@@ -26,17 +26,18 @@ class ImageCard extends Component {
 
 	render() {
 		const { image } = this.props;
+		const full = image.full || image.preview;
 		return (
 			<div className='image-card'>
 				<img
-					src={image.link}
-					alt={image.title}
+					src={image.preview}
+					alt={image.alt}
 					onClick={this.handleClick}
 				/>
 				{
 					this.state.showFull &&
 					<FullscreenGallery
-						currentPhoto={image.link}
+						currentPhoto={full}
 						onCloseGallery={this.onCloseGallery}
 					/>
 				}
