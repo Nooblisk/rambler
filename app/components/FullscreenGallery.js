@@ -26,34 +26,18 @@ class FullscreenGallery extends Component {
 
 		return (
 			<BodyClassname className='no-scroll'>
-				<div className='container-fluid hero'>
-					<div className='gallery-overlay-header' />
-					<div className='row'>
-						<div className='gallery-fullscreen__wrapper'>
-							<div className='gallery-fullscreen'>
-								<div className='full-screen-controls'>
-									<div className='full-screen-controls__wrapper'>
-										<span className='icon-link clickable icon-greenyellow'>
-											<span className='icon-shrink' onClick={this.handleFitToScreen} />
-										</span>
-										<span className='icon-link clickable icon-greenyellow' onClick={this.handleCloseGallery}>
-											<span className='icon-cross icon-close' />
-										</span>
-									</div>
-								</div>
-								<div className='images-slider'>
-									<div className='slick-list'>
-										<div className='image-list-item'>
-											<div
-												className='bgimage'
-												style={imageStyle}
-											/>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+				<div className='gallery-fullscreen'>
+					<div className='full-screen-controls'>
+						<span
+							className='icon-clickable icon-greenyellow icon-shrink'
+							onClick={this.handleFitToScreen}
+						/>
+						<span
+							className='icon-clickable icon-greenyellow icon-cross icon-close'
+							onClick={this.handleCloseGallery}
+						/>
 					</div>
+					<div className='bgimage' style={imageStyle} />
 				</div>
 			</BodyClassname>
 		);

@@ -23,7 +23,7 @@ class Gallery extends Component {
 		const { images } = this.props.app;
 		const filteredImages = images.filter(image => image.type !== undefined);
 		return (
-			<div>
+			<div className='container'>
 				<h1>{`Imgur top images of the ${DATE_RANGE}`}</h1>
 				<div className='gallery'>
 					{
