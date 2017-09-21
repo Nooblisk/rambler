@@ -19,8 +19,11 @@ class Gallery extends Component {
 	// }
 
 	render() {
-		console.log('this.props.app.images = ', this.props.app.images); // TODO Remove
+		// console.log('this.props.app.images = ', this.props.app.images); // TODO Remove
 		const { images } = this.props.app;
+		if (!Array.isArray(images)) {
+			return null;
+		}
 		const filteredImages = images.filter(image => image.type !== undefined);
 		return (
 			<div className='container'>
