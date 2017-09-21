@@ -1,11 +1,11 @@
 {
   "name": "rambler",
   "version": "0.0.0",
-  "description": "Test exercise for Rambler&Cc",
+  "description": "Test exercise for Rambler&Co",
   "scripts": {
     "start": "cross-env NODE_PATH=./app concurrently --kill-others \"nodemon app/server\" \"webpack-dev-server \"",
     "webpack": "webpack",
-    "build": "cross-env NODE_ENV=production rimraf dist/ && npm run webpack && gulp build",
+    "build": "rimraf dist/ && cross-env NODE_ENV=production npm run webpack && gulp build",
     "postinstall": "npm run build",
     "server": "cross-env NODE_ENV=production NODE_PATH=./dist/server-build node dist/server-build/server"
   },
