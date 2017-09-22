@@ -27,11 +27,18 @@ class ImageCard extends Component {
 	render() {
 		const { image } = this.props;
 		const full = image.full || image.preview;
+
+		const imageStyle = {
+			backgroundImage: `url(${image.preview})`,
+			/* Make the background image cover the area of the <div>, and clip the excess */
+			backgroundSize: 'cover',
+		};
+
 		return (
 			<div className='image-card'>
-				<img
-					src={image.preview}
-					alt={image.alt}
+				<div
+					className='image'
+					style={imageStyle}
 					onClick={this.handleClick}
 				/>
 				{

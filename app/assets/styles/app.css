@@ -4,19 +4,22 @@
 
 .image-card {
     display: inline-block;
-    position: relative;
     margin: 4px 2px;
     border: 2px solid #444442;
 }
 
 .image-card, .image-card img {
-    width: 180px;
-    height: 180px;
     line-height: 0;
 }
 
 .image-card:hover {
     cursor: pointer;
+}
+
+.image {
+    width: 180px;
+    height: 180px;
+    background-position: center;
 }
 
 .container {
