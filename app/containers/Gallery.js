@@ -21,7 +21,7 @@ const prepareImages = (images) => {
 		} else if (image.type === 'image/gif') {
 			preparedImages.push({
 				id: image.id,
-				preview: image.link,
+				preview: `https://imgur.com/${image.id}b.jpg`,
 				full: `http://i.imgur.com/${image.id}.gif`,
 				alt: image.title,
 			});
